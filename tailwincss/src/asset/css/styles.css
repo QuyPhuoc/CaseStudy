@@ -651,13 +651,25 @@ video {
   background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));
 }
 
-.bg-gray-400 {
+.bg-gray-200 {
   --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity, 1));
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
 }
 
 .bg-URL {
-  background-image: url('https://source.unsplash.com/random');
+  background-image: url('https://lh3.googleusercontent.com/p/AF1QipMMidqhL8vOxHyyzQ2h5lA5QwWgo2ySx13NnS_e=s680-w680-h510');
+}
+
+.bg-contain {
+  background-size: contain;
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .p-10 {
