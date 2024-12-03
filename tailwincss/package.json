@@ -5,6 +5,6 @@
     "tailwindcss": "^3.4.15"
   },
   "scripts": {
-    "build": "postcss ../src/asset/css/tailwindbase.css -o ../src/asset/css/styles.css"
+    "build": "postcss ./src/asset/css/tailwindbase.css -o ./src/asset/css/styles.css"
   }
 }
