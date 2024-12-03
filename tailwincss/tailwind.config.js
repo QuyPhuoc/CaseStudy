@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: theme => ({
-        URL: "url('https://lh3.googleusercontent.com/p/AF1QipMMidqhL8vOxHyyzQ2h5lA5QwWgo2ySx13NnS_e=s680-w680-h510')",
+        bg: "url('https://lh3.googleusercontent.com/p/AF1QipMMidqhL8vOxHyyzQ2h5lA5QwWgo2ySx13NnS_e=s680-w680-h510')",
       }),
     },
   },
