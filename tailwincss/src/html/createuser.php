@@ -21,6 +21,28 @@ function createuser($Name,$username,$password,$email,$phone,$Avatar){
 }
 ?>
 <?php
+require_once '../php/dbconnection.php';
+function createuserNoAva($Name,$username,$password,$email,$phone){
+    $Name = addslashes($Name);
+    $username = addslashes($username);
+    $email = addslashes($email);
+    $phone = addslashes($phone);
+    $Avatar = addslashes($Avatar);
+    $passwordenc = md5($password);
+    $conn = getDBConnection();
+    if($conn->connect_error){
+        echo "<script>window.alert(".$conn->connect_error.")</script>";
+    }
+    $sql = "INSERT INTO USER (Name,Username,Password,Email,Phone) VALUES ('$Name','$username','$passwordenc','$email','$phone')";
+    if($conn->query($sql) === TRUE){
+        echo "Tao tai khoan thanh cong";
+    }else{
+        echo "Error: ".$sql."<br>".$conn->error;
+    }
+    $conn->close();
+}
+?>
+<?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $Name = $_POST['Name'];
     $username = $_POST['username'];
@@ -38,14 +60,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Check if image file is a actual image or fake image
         $check = getimagesize($_FILES["avatar"]["tmp_name"]);
         if ($check !== false) {
-            if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
-                $avatar = $target_file;
+            $allowed_types = array('jpg', 'jpeg', 'png','webp','webmp','gif');
+            if (in_array($imageFileType, $allowed_types)) {
+                if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
+                    $avatar = $target_file;
+                } else {
+                    echo "<script>window.alert('Upload file that bai.')</script>";
+                }
             } else {
-                echo "Loi upload.";
+                echo "<script>window.alert('Chi chap nhan dinh dang png,jpeg,jpg,webmp.";
             }
         } else {
-            echo "File khong hop le.";
+            echo "<script>window.alert('File khong phai la anh.')</script>";
         }
+    }
+    else
+    {
+        createuserNoAva($Name,$username, $password, $email, $phone);
     }
     createuser($Name,$username, $password, $email, $phone, $avatar);
 }
@@ -85,10 +116,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="mb-4">
                     <label for="avatar" class="block text-gray-700">Avatar:</label>
-                    <input type="file" id="avatar" name="avatar" class="w-full px-3 py-2 border rounded-lg" required>
+                    <input type="file" id="avatar" name="avatar" class="w-full px-3 py-2 border rounded-lg">
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Create User</button>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Tao tk</button>
                 </div>
             </form>
         </div>
