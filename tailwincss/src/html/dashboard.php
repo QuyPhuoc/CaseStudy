@@ -16,5 +16,4 @@
     <?php endif; ?>
     </h1>
 </body>
-<h2> Hello Dat</h2>
 </html>
