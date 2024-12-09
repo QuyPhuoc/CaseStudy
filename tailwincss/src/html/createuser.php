@@ -27,7 +27,6 @@ function createuserNoAva($Name,$username,$password,$email,$phone){
     $username = addslashes($username);
     $email = addslashes($email);
     $phone = addslashes($phone);
-    $Avatar = addslashes($Avatar);
     $passwordenc = md5($password);
     $conn = getDBConnection();
     if($conn->connect_error){
