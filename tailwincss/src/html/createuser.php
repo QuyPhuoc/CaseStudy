@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container mx-auto px-4 py-8 relative">
         <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
             <h2 class="text-2xl font-bold mb-6 text-center">Create New User</h2>
-            <form action="newuser.php" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="mb-4">
                     <label for="Name" class="block text-gray-700">Name:</label>
                     <input type="text" id="Name" name="Name" class="w-full px-3 py-2 border rounded-lg" required>
