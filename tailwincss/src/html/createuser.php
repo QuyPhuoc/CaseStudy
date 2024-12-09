@@ -1,6 +1,11 @@
 <?php
 require_once '../php/dbconnection.php';
 function createuser($Name,$username,$password,$email,$phone,$Avatar){
+    $Name = addslashes($Name);
+    $username = addslashes($username);
+    $email = addslashes($email);
+    $phone = addslashes($phone);
+    $Avatar = addslashes($Avatar);
     $passwordenc = md5($password);
     $conn = getDBConnection();
     if($conn->connect_error){
@@ -17,7 +22,9 @@ function createuser($Name,$username,$password,$email,$phone,$Avatar){
 ?>
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $Name = $_POST['Name'];
     $username = $_POST['username'];
+    $timestamp = time();
     $password = $_POST['password'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
