@@ -13,7 +13,7 @@ function getAllMotels() {
     $conn->close();
 }
 
-function updateMotel($title, $description, $price, $area, $address, $latlng, $phone, $utilities){
+function updateMotel($id,$title, $description, $price, $area, $address, $latlng, $phone, $utilities){
     $conn = getDBConnection();
     $sql = "UPDATE Motel SET title = '$title', description = '$description', price = '$price', area = '$area', address = '$address', latlng = '$latlng', phone = '$phone', utilites = '$utilities'  WHERE id = '$id'";
     $res = $conn->query($sql);
