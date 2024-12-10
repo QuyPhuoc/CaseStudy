@@ -1,9 +1,9 @@
 <?php
 function getDBConnection(){
-$servername = "localhost:3301";
+$servername = "localhost:3307";
 $username = "root";
-$password = "root";
-$dbname = "GTPT";
+$password = "";
+$dbname = "gtpt";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
