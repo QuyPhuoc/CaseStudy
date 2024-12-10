@@ -14,13 +14,19 @@
         echo "<h1>Welcome ".$_SESSION['username']."</h1>";
     }
     ?>
-    <nav class="bg-gray-800 flex justify-end w-full h-16">
-        <ul class="flex items-center space-x-5 min-w-96 px-10 h-full">
-            <li class="h-full w-full leading-6"><a href="SignUp.php" class="h-full flex items-center text-white hover:text-gray-400">Sign Up</a></li>
-            <li class="h-full w-full leading-6"><a href="Login.php" class="h-full flex items-center text-white hover:text-gray-400">Login</a></li>
-            <li class="h-full w-full leading-6"><a href="CreatePost.php" class="h-full flex items-center text-white hover:text-gray-400">Post</a></li>
-            <li class="flex items-center justify-center h-full w-full leading-6 text-white hover:text">Search<i class="fa-solid fa-magnifying-glass ml-4 text-white hover:cursor-pointer hover:text-gray-400"></i></li>
-        </ul>
-    </nav>
+    <div class=" flex bg-blue-500 w-full fixed items-center z-20 top-0 justify-end sm:justify-end" id="">
+        <a href="#"
+            class=" text-white bg-transparent flex items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black">Home</a>
+        <a href="Contact.php"
+            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Contact</a>
+        <label for="" class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black hover:cursor-pointer sm:flex">Search <i class="fa-solid fa-magnifying-glass ml-1"></i></label>
+        </label>
+        <span class=" text-white bg-transparent hidden items-center h-1 border-white sm:flex">|</span>
+        <a href="Login.php"
+            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Login</a>
+        <a href="SignUp.php"
+            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Sign
+            Up</a>
+            
 </body>
 </html>
