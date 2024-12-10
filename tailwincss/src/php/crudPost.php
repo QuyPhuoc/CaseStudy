@@ -5,7 +5,7 @@ function getAllMotels() {
     $conn = getDBConnection();
     $sql = "SELECT * FROM Motel";
     $res = $conn->query($sql);
-    if($res === TRUE){
+    if($res !== FALSE){
         $result = array();
         while($row = $res->fetch_assoc()){
             $result[] = $row;
