@@ -28,7 +28,7 @@ function createuserNoAva($Name,$username,$password,$email,$phone){
     $email = addslashes($email);
     $phone = addslashes($phone);
     $passwordenc = md5($password);
-    $conn = getDBConnection();
+    $conn = getDBConnection();  
     if($conn->connect_error){
         echo "<script>window.alert(".$conn->connect_error.")</script>";
     }
