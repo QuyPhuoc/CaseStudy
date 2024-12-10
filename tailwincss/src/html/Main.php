@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../asset/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="bg-bg bg-no-repeat bg-cover">
     <?php 
     session_start();
     if(isset($_SESSION['username'])){
@@ -17,16 +17,24 @@
     <div class=" flex bg-blue-500 w-full fixed items-center z-20 top-0 justify-end sm:justify-end" id="">
         <a href="#"
             class=" text-white bg-transparent flex items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black">Home</a>
-        <a href="Contact.php"
-            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Contact</a>
         <label for="" class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black hover:cursor-pointer sm:flex">Search <i class="fa-solid fa-magnifying-glass ml-1"></i></label>
         </label>
+        <a href="Contact.php"
+        class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Contact</a>
         <span class=" text-white bg-transparent hidden items-center h-1 border-white sm:flex">|</span>
-        <a href="Login.php"
-            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Login</a>
-        <a href="SignUp.php"
-            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Sign
-            Up</a>
-            
+        <?php
+        if(isset($_SESSION['username'])){
+            echo "<img for='' src='".$_SESSION['avatar']."' class='text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex'></img>";
+            echo "<a href='../php/Logout.php' class=' text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex'>Logout</a>";
+        }
+        else{
+            echo "<a href='Login.php'
+            class=' text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex'>Login</a>
+        <a href='SignUp.php'
+            class=' text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex'>Sign
+            Up</a>";
+        }
+            ?>
+    </div>
 </body>
 </html>

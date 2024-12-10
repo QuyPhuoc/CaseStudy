@@ -13,9 +13,9 @@ function createuser($Name,$username,$password,$email,$phone,$Avatar){
     }
     $sql = "INSERT INTO USER (Name,Username,Password,Email,Phone,Avatar) VALUES ('$Name','$username','$passwordenc','$email','$phone','$Avatar')";
     if($conn->query($sql) === TRUE){
-        echo "New record created successfully";
+        echo "<script>window.alert('Tao tai khoan thanh cong')</script>";
     }else{
-        echo "Error: ".$sql."<br>".$conn->error;
+        echo "<script>window.alert('Error: ".$sql."<br>".$conn->error."')</script>";
     }
     $conn->close();
 }
@@ -78,6 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         createuserNoAva($Name,$username, $password, $email, $phone);
     }
     createuser($Name,$username, $password, $email, $phone, $avatar);
+}
+?>
+<?php
+session_start();
+if(isset($_SESSION['username'])){
+    header('Location: Main.php');
 }
 ?>
 <!DOCTYPE html>

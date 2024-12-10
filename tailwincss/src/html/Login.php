@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="../asset/css/styles.css">
 </head>
 <body class="bg-bg bg-no-repeat bg-cover">
+<div class=" flex bg-blue-500 w-full fixed items-center z-20 top-0 justify-end sm:justify-end" id="">
+        <a href="Main.php"
+            class=" text-white bg-transparent flex items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black">Home</a>
+        <a href="Contact.php"
+            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Contact</a>
+        <label for="" class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black hover:cursor-pointer sm:flex">Search <i class="fa-solid fa-magnifying-glass ml-1"></i></label>
+        </label>
+        <span class=" text-white bg-transparent hidden items-center h-1 border-white sm:flex">|</span>
+        <a href="Login.php"
+            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Login</a>
+        <a href="SignUp.php"
+            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Sign
+            Up</a>
+    </div>
     <div class="container mx-auto relative">
         <div class="flex justify-center items-center h-screen relative">
             <form action="" method="post" class="bg-blue-500 p-10 rounded-lg shadow-lg relative">
@@ -23,6 +37,7 @@
                     <input required type="password" name="password" id="password" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
                 <button type="submit" class="w-full bg-gray-300 hover:bg-blue-400 text-black p-2 rounded">Login</button>
+                <lable class="block text-sm font-bold text-black mt-2">Don't have an account? <a class="text-black decoration-solid hover:text-white animate-spin" href="SignUp.php">Sign up</a></lable>
             </form>
         </div>
             <!-- <?php
@@ -60,7 +75,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         $_SESSION['email'] = $row['Email'];
         $_SESSION['avatar'] = $row['Avatar'];
         //redirect to the dashboard
-        header('Location: dashboard.php');
+        header('Location: Main.php');
     }else{
         session_unset();
         session_destroy();
