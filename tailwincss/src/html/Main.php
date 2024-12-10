@@ -24,7 +24,7 @@
         <span class=" text-white bg-transparent hidden items-center h-1 border-white sm:flex">|</span>
         <?php
         if(isset($_SESSION['username'])){
-            echo "<img for='' src='".$_SESSION['avatar']."' class='text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex'></img>";
+            echo "<img for='' src='".$_SESSION['avatar']."' class='text-white bg-transparent hidden items-center h-12 w-12 py-3 px-6 hover:cursor-pointer hover:text-black sm:flex rounded-full'></img>";
             echo "<a href='../php/Logout.php' class=' text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex'>Logout</a>";
         }
         else{
