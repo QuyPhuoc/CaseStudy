@@ -12,13 +12,14 @@
     session_start();
     if(isset($_SESSION['username'])){
         echo "<h1>Welcome ".$_SESSION['username']."</h1>";
+    }
     ?>
-    <nav>
-        <ul>
-            <li><a href="SignUp.php">Create User</a></li>
-            <li><a href="Login.php">Login</a></li>
-            <li><a href="CreatePost.php">Post</a></li>
-            <li><i class="fa-solid fa-magnifying-glass"></i></li>
+    <nav class="bg-gray-800 p-4 flex justify-end">
+        <ul class="flex space-x-5 flex-1">
+            <li><a href="SignUp.php" class="text-white hover:text-gray-400">Sign Up</a></li>
+            <li><a href="Login.php" class="text-white hover:text-gray-400">Login</a></li>
+            <li><a href="CreatePost.php" class="text-white hover:text-gray-400">Post</a></li>
+            <li><i class="fa-solid fa-magnifying-glass text-white hover:cursor-pointer hover:text-gray-400"></i></li>
         </ul>
     </nav>
 </body>

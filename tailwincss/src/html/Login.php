@@ -11,7 +11,7 @@
         <div class="flex justify-center items-center h-screen relative">
             <form action="" method="post" class="bg-blue-500 p-10 rounded-lg shadow-lg relative">
                 <div class="flex justify-center">
-                    <img src="../asset/img/LogoVinh.svg" alt="" class="w-16 h-16 -mt-16">
+                    <img src="../asset/imgAva/LogoVinh.svg" alt="" class="w-16 h-16 -mt-16">
                 </div>
                 <h2 class="text-2xl font-bold mb-10 text-center">Login</h2>
                 <div class="mb-5">
