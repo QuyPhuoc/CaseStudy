@@ -72,7 +72,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
             if($login_failed > 3){
                 session_unset();
                 session_destroy();
-                echo "<script>window.alert('Please verify you are not a robot')</script>";
+                echo "<script>window.alert('Hoan thanh capcha de tiep tuc')</script>";
             }
         }
     }

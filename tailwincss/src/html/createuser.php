@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $avatar = '';
 
     if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0) {
-        $target_dir = "../asset/img/";
+        $target_dir = "../asset/imgAva/";
         $target_file = $target_dir . $timestamp . "_" . $username . ".png";
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
