@@ -14,12 +14,12 @@
         echo "<h1>Welcome ".$_SESSION['username']."</h1>";
     }
     ?>
-    <nav class="bg-gray-800 p-4 flex justify-end">
-        <ul class="flex space-x-5 flex-1">
-            <li><a href="SignUp.php" class="text-white hover:text-gray-400">Sign Up</a></li>
-            <li><a href="Login.php" class="text-white hover:text-gray-400">Login</a></li>
-            <li><a href="CreatePost.php" class="text-white hover:text-gray-400">Post</a></li>
-            <li><i class="fa-solid fa-magnifying-glass text-white hover:cursor-pointer hover:text-gray-400"></i></li>
+    <nav class="bg-gray-800 flex justify-end w-full h-16">
+        <ul class="flex items-center space-x-5 min-w-96 px-10 h-full">
+            <li class="h-full w-full leading-6"><a href="SignUp.php" class="h-full flex items-center text-white hover:text-gray-400">Sign Up</a></li>
+            <li class="h-full w-full leading-6"><a href="Login.php" class="h-full flex items-center text-white hover:text-gray-400">Login</a></li>
+            <li class="h-full w-full leading-6"><a href="CreatePost.php" class="h-full flex items-center text-white hover:text-gray-400">Post</a></li>
+            <li class="flex items-center justify-center h-full w-full leading-6 text-white hover:text">Search<i class="fa-solid fa-magnifying-glass ml-4 text-white hover:cursor-pointer hover:text-gray-400"></i></li>
         </ul>
     </nav>
 </body>
