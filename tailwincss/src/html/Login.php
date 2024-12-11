@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dang Nhap</title>
     <link rel="stylesheet" href="../asset/css/styles.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="../javascript/captchaVali.js"></script>
+
+
+
 </head>
 <body class="bg-bg bg-no-repeat bg-cover">
 <div class=" flex bg-blue-500 w-full fixed items-center z-20 top-0 justify-end sm:justify-end" id="">
@@ -23,7 +28,7 @@
     </div>
     <div class="container mx-auto relative">
         <div class="flex justify-center items-center h-screen relative">
-            <form action="" method="post" class="bg-blue-500 p-10 rounded-lg shadow-lg relative">
+            <form action="" method="post" id="login-form" class="bg-blue-500 p-10 rounded-lg shadow-lg relative">
                 <div class="flex justify-center">
                     <img src="../asset/imgAva/LogoVinh.svg" alt="" class="w-16 h-16 -mt-16">
                 </div>
@@ -36,23 +41,31 @@
                     <label for="password" class="block text-sm font-bold text-black">Password</label>
                     <input required type="password" name="password" id="password" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
-                <button type="submit" class="w-full bg-gray-300 hover:bg-blue-400 text-black p-2 rounded">Login</button>
+                <div class="mb-5">
+                    <input type="checkbox" name="remember" id="remember" class="mt-1 hover:cursor-pointer">  Remember me</input>
+                </div>
+                <div class="mb-5 hidden bg-black text-center transition-shadow" id="alert">
+                    <span id="alertSpan" class="text-red-600 capitalize "></span>
+                </div>
+                <?php
+                if(isset($_COOKIE['login_failed'])){
+                    $login_failed = $_COOKIE['login_failed'];
+                    if($login_failed >= 3){
+                        echo "<div class='mb-5 g-recaptcha' data-sitekey='6Lcr0pgqAAAAAJhmwEBy2JpWn02_I-GUEp7HyAcF' data-callback='enableSubmitButton'></div>";
+                    }
+                }
+                ?>
+                <button id="submit-button" type="submit" class="w-full bg-gray-300 hover:bg-blue-400 text-black p-2 rounded" <?php if($_COOKIE['login_failed']>=3){ echo "disabled";}?>>Login</button>
                 <lable class="block text-sm font-bold text-black mt-2">Don't have an account? <a class="text-black decoration-solid hover:text-white animate-spin" href="SignUp.php">Sign up</a></lable>
             </form>
         </div>
-            <!-- <?php
-            if(isset($_COOKIE['login_failed'])){
-                $login_failed = $_COOKIE['login_failed'];
-                echo "<div class='text-black p-2 rounded flex h-3 justify-center'>Failed login: ".$login_failed."</div>";
-            }
-            ?> -->
 </body>
 </html>
 <?php
 session_start();
 require_once '../php/dbconnection.php';
 if(isset($_POST['username']) && isset($_POST['password'])){
-    setcookie('login_failed', 0, time() + 15);
+    setcookie('login_failed', 1, time() + 15);
     $usernameraw = $_POST['username'];
     $passwordraw = $_POST['password'];
     $username = addslashes($usernameraw);
@@ -80,6 +93,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         session_unset();
         session_destroy();
         if(isset($_COOKIE['login_failed'])){
+            echo "<script>showAlert('Sai ten hoac mat khau');</script>";
             $login_failed = $_COOKIE['login_failed'];
             $login_failed++;
             setcookie('login_failed', $login_failed, time() + 15);
@@ -87,7 +101,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
             if($login_failed > 3){
                 session_unset();
                 session_destroy();
-                echo "<script>window.alert('Hoan thanh capcha de tiep tuc')</script>";
+                echo "<script>showAlert('Sai 3 lan, hay hoan thanh captcha');</script>";
             }
         }
     }

@@ -23,11 +23,12 @@
         class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Contact</a>
         <span class=" text-white bg-transparent hidden items-center h-1 border-white sm:flex">|</span>
         <?php
-        if(isset($_SESSION['username'])){
-            echo "<img for='' src='".$_SESSION['avatar']."' class='text-white bg-transparent hidden items-center h-12 w-12 py-3 px-6 hover:cursor-pointer hover:text-black sm:flex rounded-full'></img>";
+        if(isset($_SESSION['username']))
+        {
             echo "<a href='../php/Logout.php' class=' text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex'>Logout</a>";
+            echo "<div class='bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:cursor-pointer hover:bg-white hover:text-black sm:flex'><img for='' src='".$_SESSION['avatar']."' class='object-cover w-10 h-10 rounded-full'></img></div>";
         }
-        else{
+            else{
             echo "<a href='Login.php'
             class=' text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex'>Login</a>
         <a href='SignUp.php'
