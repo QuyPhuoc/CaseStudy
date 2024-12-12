@@ -37,4 +37,7 @@ function deleteMotel($id){
         echo "Loi: ".$sql."<br>".$conn->error;
     }
 }
+
+
+
 ?>
