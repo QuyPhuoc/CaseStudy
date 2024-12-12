@@ -1,5 +1,7 @@
+<!-- Ham de them nguoi dung -->
 <?php
-require_once '../php/dbconnection.php';
+require '../php/checkUserEmailPhone.php';
+require '../php/dbconnection.php';
 function createuser($Name,$username,$password,$email,$phone,$Avatar){
     $Name = addslashes($Name);
     $username = addslashes($username);
@@ -19,28 +21,26 @@ function createuser($Name,$username,$password,$email,$phone,$Avatar){
     }
     $conn->close();
 }
+// function createuserNoAva($Name,$username,$password,$email,$phone){
+//     $Name = addslashes($Name);
+//     $username = addslashes($username);
+//     $email = addslashes($email);
+//     $phone = addslashes($phone);
+//     $passwordenc = md5($password);
+//     $conn = getDBConnection();  
+//     if($conn->connect_error){
+//         echo "<script>window.alert(".$conn->connect_error.")</script>";
+//     }
+//     $sql = "INSERT INTO USER (Name,Username,Password,Email,Phone) VALUES ('$Name','$username','$passwordenc','$email','$phone')";
+//     if($conn->query($sql) === TRUE){
+//         echo "Tao tai khoan thanh cong";
+//     }else{
+//         echo "Error: ".$sql."<br>".$conn->error;
+//     }
+//     $conn->close();
+// }
 ?>
-<?php
-require_once '../php/dbconnection.php';
-function createuserNoAva($Name,$username,$password,$email,$phone){
-    $Name = addslashes($Name);
-    $username = addslashes($username);
-    $email = addslashes($email);
-    $phone = addslashes($phone);
-    $passwordenc = md5($password);
-    $conn = getDBConnection();  
-    if($conn->connect_error){
-        echo "<script>window.alert(".$conn->connect_error.")</script>";
-    }
-    $sql = "INSERT INTO USER (Name,Username,Password,Email,Phone) VALUES ('$Name','$username','$passwordenc','$email','$phone')";
-    if($conn->query($sql) === TRUE){
-        echo "Tao tai khoan thanh cong";
-    }else{
-        echo "Error: ".$sql."<br>".$conn->error;
-    }
-    $conn->close();
-}
-?>
+<!-- nhan methon post va xu ly -->
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $Name = $_POST['Name'];
@@ -69,23 +69,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else {
                 echo "<script>window.alert('Chi chap nhan dinh dang png,jpeg,jpg,webmp.";
             }
-        } else {
+        }
+        else {
             echo "<script>window.alert('File khong phai la anh.')</script>";
         }
     }
-    else
-    {
-        createuserNoAva($Name,$username, $password, $email, $phone);
+    if($avatar == ''){
+            $avatar = '../asset/imgAva/defaultAva.png';
     }
-    createuser($Name,$username, $password, $email, $phone, $avatar);
+
+    //check ten dang nhap da ton tai chua
+    switch (CheckUser($username, $email, $phone)) {
+        case 1:
+            echo "<script>window.alert('Ten dang nhap da ton tai.')</script>";
+            break;
+        case 2:
+            echo "<script>window.alert('Email da ton tai.')</script>";
+            break;
+        case 3:
+            echo "<script>window.alert('So dien thoai da ton tai.')</script>";
+            break;
+        case 0:
+            createuser($Name,$username,$password,$email,$phone,$avatar);
+            break;
+    }
+    
 }
 ?>
+
+
+<!-- neu da dang nhap thi tu chuyen huong -->
 <?php
 session_start();
 if(isset($_SESSION['username'])){
     header('Location: Main.php');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

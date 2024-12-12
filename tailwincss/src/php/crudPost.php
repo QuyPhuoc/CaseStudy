@@ -37,7 +37,15 @@ function deleteMotel($id){
         echo "Loi: ".$sql."<br>".$conn->error;
     }
 }
-
-
-
+function createMotel($title, $description, $price, $area, $address, $latlng, $phone, $utilities){
+    $conn = getDBConnection();
+    $sql = "INSERT INTO Motel (title, description, price, area, address, latlng, phone, utilities) VALUES ('$title', '$description', '$price', '$area', '$address', '$latlng', '$phone', '$utilities')";
+    $res = $conn->query($sql);
+    if($res === TRUE){
+        return true;
+    }else{
+        echo "Loi: ".$sql."<br>".$conn->error;
+        return false;
+    }
+}
 ?>
