@@ -1,7 +1,6 @@
 function enableSubmitButton() {
     document.getElementById("submit-button").disabled = false;
 }
-
 function validateForm(event) {
     var response = grecaptcha.getResponse();
     if(response.length == 0) { 
@@ -11,7 +10,6 @@ function validateForm(event) {
     }
     return true;
 }
-
 function showAlert(message) {
     document.getElementById("alert").style.display = "block";
     document.getElementById("alertSpan").innerHTML = message;
