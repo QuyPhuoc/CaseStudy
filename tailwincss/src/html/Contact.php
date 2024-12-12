@@ -9,7 +9,7 @@
 <body>
     <div class="min-h-screen flex items-center justify-center bg-gray-100">
         <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-            <h2 class="text-2xl font-bold mb-6 text-gray-800">Liên hệ với chúng tôi</h2>
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Liên hệ với chúng tôi</h2>
             <form action="send_contact.php" method="POST">
                 <div class="mb-4">
                     <label for="name" class="block text-gray-700">Tên người dùng</label>
