@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,17 +14,16 @@
 <body class="bg-bg bg-no-repeat bg-cover">
 <div class=" flex bg-blue-500 w-full fixed items-center z-20 top-0 justify-end sm:justify-end" id="">
         <a href="Main.php"
-            class=" text-white bg-transparent flex items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black">Home</a>
+            class=" text-white bg-transparent flex items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black">Trang chủ</a>
         <a href="Contact.php"
-            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Contact</a>
-        <label for="" class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black hover:cursor-pointer sm:flex">Search <i class="fa-solid fa-magnifying-glass ml-1"></i></label>
+            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Liên Hệ</a>
+        <label for="" class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black hover:cursor-pointer sm:flex">Tìm kiếm <i class="fa-solid fa-magnifying-glass ml-1"></i></label>
         </label>
         <span class=" text-white bg-transparent hidden items-center h-1 border-white sm:flex">|</span>
         <a href="Login.php"
-            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Login</a>
+            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Đăng nhập</a>
         <a href="SignUp.php"
-            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Sign
-            Up</a>
+            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Đăng ký</a>
     </div>
     <div class="container mx-auto relative">
         <div class="flex justify-center items-center h-screen relative">
@@ -32,17 +31,17 @@
                 <div class="flex justify-center">
                     <img src="../asset/imgAva/LogoVinh.svg" alt="" class="w-16 h-16 -mt-16">
                 </div>
-                <h2 class="text-2xl font-bold mb-10 text-center">Login</h2>
+                <h2 class="text-2xl font-bold mb-10 text-center">Đăng nhập</h2>
                 <div class="mb-5">
-                    <label for="username" class="block text-sm font-bold text-black">Username</label>
+                    <label for="username" class="block text-sm font-bold text-black">Tên tài khoản</label>
                     <input required type="text" name="username" id="username" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
                 <div class="mb-5">
-                    <label for="password" class="block text-sm font-bold text-black">Password</label>
+                    <label for="password" class="block text-sm font-bold text-black">Mật khẩu</label>
                     <input required type="password" name="password" id="password" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
                 <div class="mb-5">
-                    <input type="checkbox" name="remember" id="remember" class="mt-1 hover:cursor-pointer">  Remember me</input>
+                    <input type="checkbox" name="remember" id="remember" class="mt-1 hover:cursor-pointer"> Remember me</input>
                 </div>
                 <div class="mb-5 hidden bg-black text-center transition-shadow" id="alert">
                     <span id="alertSpan" class="text-red-600 capitalize "></span>
@@ -62,7 +61,7 @@ if($login_failed >=3)
 echo "disabled";
 }
 }?>>Login</button>
-                <lable class="block text-sm font-bold text-black mt-2">Don't have an account? <a class="text-black decoration-solid hover:text-white animate-spin" href="SignUp.php">Sign up</a></lable>
+                <lable class="block text-sm font-bold text-black mt-2">Bạn chưa có tài khoản? <a class="text-black decoration-solid hover:text-white animate-spin" href="SignUp.php">Đăng ký</a></lable>
             </form>
         </div>
 </body>
