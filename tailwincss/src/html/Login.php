@@ -55,7 +55,13 @@
                     }
                 }
                 ?>
-                <button id="submit-button" type="submit" class="w-full bg-gray-300 hover:bg-blue-400 text-black p-2 rounded" <?php if($_COOKIE['login_failed']>=3){ echo "disabled";}?>>Login</button>
+                <button id="submit-button" type="submit" class="w-full bg-gray-300 hover:bg-blue-400 text-black p-2 rounded" <?php if(isset($_COOKIE['login_failed'])){
+$login_failed=$_COOKIE['login_failed'];
+if($login_failed >=3)
+{
+echo "disabled";
+}
+}?>>Login</button>
                 <lable class="block text-sm font-bold text-black mt-2">Don't have an account? <a class="text-black decoration-solid hover:text-white animate-spin" href="SignUp.php">Sign up</a></lable>
             </form>
         </div>
