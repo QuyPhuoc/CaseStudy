@@ -50,19 +50,4 @@ function createMotel($title, $description, $price, $area, $address, $latlng, $ph
     }
 }
 
-function updateCountView($id){
-    $conn = getDBConnection();
-        // Tạo tên cookie duy nhất cho bài viết
-        $cookieName = "View" . $id;
-        // Kiểm tra xem người dùng đã xem bài viết này chưa
-        if (!isset($_COOKIE[$cookieName])) {
-            // Cập nhật lượt xem trong cơ sở dữ liệu
-            $sql = "UPDATE rooms SET count_view = count_view + 1 WHERE ID = ?";
-            $res = $conn->query($sql);
-            if ($res) {
-                // Đặt cookie để ngăn tăng lượt xem nhiều lần
-                setcookie($cookieName, true, time() + 30, "/"); // Cookie có hiệu lực trong 30s
-            }
-        }
-}
 ?>  
