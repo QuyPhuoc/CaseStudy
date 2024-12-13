@@ -1,19 +1,6 @@
 <?php
-// Bao gồm tệp kết nối cơ sở dữ liệu
-// require_once '../php/dbconnection.php'; 
-$host = 'localhost:3301';        // Địa chỉ máy chủ
-$user = 'root';             // Tên người dùng MySQL
-$password = 'root';             // Mật khẩu MySQL
-$dbname = 'GTPT';  // Tên cơ sở dữ liệu
-
-// Kết nối đến cơ sở dữ liệu
-$conn = new mysqli($host, $user, $password, $dbname);
-
-// Kiểm tra kết nối
-if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
-}
-
+require_once 'dbconnection.php';
+$conn = getDBConnection();
 // Khởi tạo biến $count_view với giá trị mặc định
 $count_view = 0;
 
@@ -44,7 +31,7 @@ if ($id > 0) {
         $res = $conn->query($sql);  
         if($res === TRUE){
             setcookie("update_status", "Cap nhat thanh cong", time() + 30, "/");
-    }
+    } 
     $conn->close();
 }
     }

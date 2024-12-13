@@ -2,7 +2,7 @@
 function getDBConnection(){
 $servername = "localhost:3301";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "GTPT";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
