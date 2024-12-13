@@ -66,7 +66,9 @@ echo "disabled";
         </div>
 </body>
 </html>
+
 <?php
+// check thong tin dang nhap
 session_start();
 require_once '../php/dbconnection.php';
 if(isset($_POST['username']) && isset($_POST['password'])){
