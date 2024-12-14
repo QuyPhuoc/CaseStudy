@@ -6,26 +6,11 @@
     <title>Dang Nhap</title>
     <link rel="stylesheet" href="../asset/css/styles.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="../javascript/captchaVali.js"></script>
-
-
+    <script src="../javascript/Validate.js"></script>
 
 </head>
-<body class="bg-bg bg-no-repeat bg-cover">
-<div class=" flex bg-blue-500 w-full fixed items-center z-20 top-0 justify-end sm:justify-end" id="">
-        <a href="Main.php"
-            class=" text-white bg-transparent flex items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black">Trang chủ</a>
-        <a href="Contact.php"
-            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Liên Hệ</a>
-        <label for="" class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black hover:cursor-pointer sm:flex">Tìm kiếm <i class="fa-solid fa-magnifying-glass ml-1"></i></label>
-        </label>
-        <span class=" text-white bg-transparent hidden items-center h-1 border-white sm:flex">|</span>
-        <a href="Login.php"
-            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Đăng nhập</a>
-        <a href="SignUp.php"
-            class=" text-white bg-transparent hidden items-center h-12 max-w-32 py-3 px-6 hover:bg-white hover:text-black sm:flex">Đăng ký</a>
-    </div>
-    <div class="container mx-auto relative">
+<body class="bg-shade bg-no-repeat bg-cover">
+    <div class="container mx-auto">
         <div class="flex justify-center items-center h-screen relative">
             <form action="" method="post" id="login-form" class="bg-blue-500 p-10 rounded-lg shadow-lg relative">
                 <div class="flex justify-center">
@@ -67,6 +52,13 @@ echo "disabled";
 </body>
 </html>
 
+
+
+
+
+
+
+
 <?php
 // check thong tin dang nhap
 session_start();
@@ -87,7 +79,9 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     if($result->num_rows > 0){
         echo "Login success";
         setcookie('login_failed',0, time() + 15);
-        setcookie('username', $username, time() + 3600);
+        if(isset($_POST['remember'])){
+            setcookie('username', $username, time() + 3600);
+        }
         //save the username, email and avatar to the session
         $row = $result->fetch_assoc();
         

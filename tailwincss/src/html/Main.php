@@ -36,34 +36,42 @@
         }
             ?>
     </div>
-    <div class="sidebar-left w-40 h-full flex fixed left-0 bg-black justify-center">
-        <div class="sort-option text-white">
-            <h1 class="text-white">Sắp xếp theo</h1>
-            <form action="../php/sortPost" method="post">
-                <label for="sort-price-desc" class="sort-option-item-label">Giá</label>
-                <div class="sort-option-item">
-                    <input type="checkbox" name="sort[]" id="sort-price-desc" value="price-desc" class="sort-option-item-input">
-                    <label for="sort-price-desc" class="sort-option-item-label">Giá giảm dần</label>
-                </div>
-                <label for="sort-area-desc" class="sort-option-item-label">Diện tích</label>
-                <div class="sort-option-item">
-                    <input type="checkbox" name="sort[]" id="sort-area-desc" value="area-desc" class="sort-option-item-input">
-                    <label for="sort-area-desc" class="sort-option-item-label">Diện tích giảm dần</label>
-                </div>
-                <label for="sort-utilities-desc" class="sort-option-item-label">Tiện ích</label>
-                <div class="sort-option-item">
-                    <input type="checkbox" name="sort[]" id="sort-utilities-desc" value="utilities-desc" class="sort-option-item-input">
-                    <label for="sort-utilities-desc" class="sort-option-item-label">Tiện ích giảm dần</label>
-                </div>
-                <div>
-                    <button type="submit" class="bg-green-500 w-full text-white p-2 rounded-lg">Sắp xếp</button>
-                </div>
+    <div class="sidebar-left mt-12 max-w-40 h-full flex fixed left-0 bg-black justify-center">
+        <div class="sort-option text-white p-4">
+            <h1 class="text-white text-lg font-bold mb-4">Sắp xếp theo</h1>
+            <div class="sort-option-item mb-2 w-28 flex justify-center">
+                <button type="button" id="sort1" class="flex w-full justify-center text-center items-center text-white bg-blue-500 py-2 px-4 rounded hover:bg-blue-700">Mới nhất</button>
+            </div>
+            <div class="sort-option-item mb-2 w-28 flex justify-center">
+                <button type="button" id="sort2" class="flex w-full justify-center text-center items-center text-white bg-blue-500 py-2 px-4 rounded hover:bg-blue-700">Cũ nhất</button>
+            </div>
+            <div class="sort-option-item mb-2">
+                <form action="../Post/sortPost.php">
+                <input type="radio" name="sort" id="sort3" class="hidden">
+                <label for="sort3" class="cursor-pointer text-white">Lượt xem</label>
+                <select class="text-black ml-2 p-1 rounded">
+                    <option value="ASC">Tăng dần</option>
+                    <option value="DESC">Giảm dần</option>
+                </select>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
+            </div>
+            <div class="sort-option-item mb-2">
+                <form action="../Post/sortPost.php"></form>
+                <input type="radio" name="sort" id="sort4" class="hidden">
+                <label for="sort4" class="cursor-pointer text-white">Vi tri</label>
+                <select class="text-black ml-2 p-1 rounded">
+                    <option value="ASC">Xa nhat</option>
+                    <option value="DESC">Gan nhat</option>
+                </select>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
         </div>
     </div>
     <div class="sidebar-right w-40 h-full fixed right-0 bg-green-600 hidden" id="sidebar-right">
-
     </div>
+
 
     <div class="" id="mainviewport" onclick="closerightpanel()">
         <?php

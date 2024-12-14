@@ -1,7 +1,7 @@
 <!-- Ham de them nguoi dung -->
 <?php
-require '../php/checkUserEmailPhone.php';
-require '../php/dbconnection.php';
+require '../Admin/checkUserEmailPhone.php';
+require_once '../php/dbconnection.php';
 function createuser($Name,$username,$password,$email,$phone,$Avatar){
     $Name = addslashes($Name);
     $username = addslashes($username);
@@ -81,13 +81,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //check ten dang nhap da ton tai chua
     switch (CheckUser($username, $email, $phone)) {
         case 1:
-            echo "<script>window.alert('Ten dang nhap da ton tai.')</script>";
+            echo "<script>showAlert('Ten dang nhap da ton tai.')</script>";
             break;
         case 2:
-            echo "<script>window.alert('Email da ton tai.')</script>";
+            echo "<script>showAlert('Email da ton tai.')</script>";
             break;
         case 3:
-            echo "<script>window.alert('So dien thoai da ton tai.')</script>";
+            echo "<script>showAlert('So dien thoai da ton tai.')</script>";
             break;
         case 0:
             createuser($Name,$username,$password,$email,$phone,$avatar);
@@ -112,39 +112,47 @@ if(isset($_SESSION['username'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New User</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="../asset/css/styles.css" rel="stylesheet">
+    <script src="../javascript/Validate.js"></script>
 </head>
-<body class="bg-bg bg-no-repeat bg-cover">
-    <div class="container mx-auto px-4 py-8 relative">
-        <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+<body class="bg-shade bg-no-repeat bg-cover">
+    <div class="px-4 py-8 container mx-auto relative">
+        <div class="max-w-md mx-auto rounded-lg shadow-md">
+            <form action="" method="post" enctype="multipart/form-data" class="bg-blue-500 p-10 rounded-lg shadow-lg relative">
             <h2 class="text-2xl font-bold mb-6 text-center">Create New User</h2>
-            <form action="" method="post" enctype="multipart/form-data">
                 <div class="mb-4">
-                    <label for="Name" class="block text-gray-700">Name:</label>
+                    <label for="Name" class="block text-sm font-bold text-black">Name:</label>
                     <input type="text" id="Name" name="Name" class="w-full px-3 py-2 border rounded-lg" required>
                 </div>
                 <div class="mb-4">
-                    <label for="username" class="block text-gray-700">Username:</label>
+                    <label for="username" class="block text-sm font-bold text-black">Username:</label>
                     <input type="text" id="username" name="username" class="w-full px-3 py-2 border rounded-lg" required>
                 </div>
                 <div class="mb-4">
-                    <label for="password" class="block text-gray-700">Password:</label>
+                    <label for="password" class="block text-sm font-bold text-black">Password:</label>
                     <input type="password" id="password" name="password" class="w-full px-3 py-2 border rounded-lg" required>
                 </div>
                 <div class="mb-4">
-                    <label for="email" class="block text-gray-700">Email:</label>
+                    <label for="password" class="block text-sm font-bold text-black">Confirm password</label>
+                    <input type="password" id="passwordconf" name="password" class="w-full px-3 py-2 border rounded-lg" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-bold text-black">Email:</label>
                     <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg" required>
                 </div>
                 <div class="mb-4">
-                    <label for="phone" class="block text-gray-700">Phone:</label>
+                    <label for="phone" class="block text-sm font-bold text-black">Phone:</label>
                     <input type="text" id="phone" name="phone" class="w-full px-3 py-2 border rounded-lg" required>
                 </div>
                 <div class="mb-4">
-                    <label for="avatar" class="block text-gray-700">Avatar:</label>
+                    <label for="avatar" class="block text-sm font-bold text-black">Avatar:</label>
                     <input type="file" id="avatar" name="avatar" class="w-full px-3 py-2 border rounded-lg">
                 </div>
+                <div class="mb-5 hidden bg-black text-center transition-shadow" id="alert">
+                    <span id="alertSpan" class="text-red-600 capitalize "></span>
+                </div>
                 <div class="text-center">
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Tao tk</button>
+                    <button type="submit" class="w-full bg-gray-300 hover:bg-blue-400 text-black p-2 rounded" onclick="PasswordValidator()">Tao tk</button>
                 </div>
             </form>
         </div>

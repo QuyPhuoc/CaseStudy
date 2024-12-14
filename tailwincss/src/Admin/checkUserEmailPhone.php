@@ -1,5 +1,5 @@
 <?php
-require_once 'dbconnection.php';
+require '../php/dbconnection.php';
 function CheckUser($username, $email, $phone) {
     $conn = getDBConnection();
     $sql1 = "SELECT Username FROM USER WHERE Username = '$username'";

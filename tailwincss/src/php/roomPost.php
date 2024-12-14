@@ -1,5 +1,5 @@
 <?php
-require_once '../php/dbconnection.php';
+require_once 'dbconnection.php';
 
 function addMotel($conn, $title, $description, $price, $area, $address, $latlng, $imagePath, $phone, $utilities, $category_id, $district_id) {
     $stmt = $conn->prepare("INSERT INTO Motel (title, description, price, area, address, latlng, images, phone, utilities, category_id, district_id, created_at) 
@@ -57,109 +57,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Tin Phòng Trọ</title>
-    <link rel="stylesheet" href="../asset/css/styleRoom.css">
-    <style>
-        @keyframes backgroundMove {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 100% 100%;
-            }
-        }
-
-        body {
-            background: url('../asset/imgAva/canhovipvip.jpg') no-repeat center center fixed;
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            animation: backgroundMove 20s linear infinite;
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-            color: #fff;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        .form-group {
-            margin: 15px 0;
-        }
-
-        form {
-            background: rgba(255, 255, 255, 0.9); 
-            padding: 20px;
-            max-width: 500px;
-            margin: auto;
-            border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-        }
-    </style>
-
+    <link rel="stylesheet" href="../asset/css/style.css">
 </head>
-<body>
-    <h1>Đăng Tin Phòng Trọ</h1>
-    <form method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="title">Tiêu đề:</label>
-            <input type="text" name="title" id="title" placeholder="Tên phòng trọ" required>
+<body class="bg-cover bg-center bg-fixed" style="background-image: url('../asset/imgAva/canhovipvip.jpg');">
+    <h1 class="text-center text-white text-4xl mt-10 shadow-lg">Đăng Tin Phòng Trọ</h1>
+    <form method="POST" enctype="multipart/form-data" class="bg-white bg-opacity-90 p-8 max-w-lg mx-auto mt-10 rounded-lg shadow-xl">
+        <div class="form-group mb-4">
+            <label for="title" class="block text-gray-700">Tiêu đề:</label>
+            <input type="text" name="title" id="title" placeholder="Tên phòng trọ" required class="w-full px-3 py-2 border rounded">
         </div>
 
-        <div class="form-group">
-            <label for="description">Mô tả chi tiết:</label>
-            <textarea name="description" id="description" placeholder="Mô tả chi tiết phòng trọ" required></textarea>
+        <div class="form-group mb-4">
+            <label for="description" class="block text-gray-700">Mô tả chi tiết:</label>
+            <textarea name="description" id="description" placeholder="Mô tả chi tiết phòng trọ" required class="w-full px-3 py-2 border rounded"></textarea>
         </div>
 
-        <div class="form-group">
-            <label for="price">Giá phòng trọ:</label>
-            <input type="number" name="price" id="price" placeholder="Giá phòng" required>
+        <div class="form-group mb-4">
+            <label for="price" class="block text-gray-700">Giá phòng trọ:</label>
+            <input type="number" name="price" id="price" placeholder="Giá phòng" required class="w-full px-3 py-2 border rounded">
         </div>
 
-        <div class="form-group">
-            <label for="area">Diện tích phòng trọ (m²):</label>
-            <input type="number" name="area" id="area" placeholder="Diện tích phòng" required>
+        <div class="form-group mb-4">
+            <label for="area" class="block text-gray-700">Diện tích phòng trọ (m²):</label>
+            <input type="number" name="area" id="area" placeholder="Diện tích phòng" required class="w-full px-3 py-2 border rounded">
         </div>
 
-        <div class="form-group">
-            <label for="address">Địa chỉ trọ:</label>
-            <input type="text" name="address" id="address" placeholder="Địa chỉ phòng trọ" required>
+        <div class="form-group mb-4">
+            <label for="address" class="block text-gray-700">Địa chỉ trọ:</label>
+            <input type="text" name="address" id="address" placeholder="Địa chỉ phòng trọ" required class="w-full px-3 py-2 border rounded">
         </div>
 
-        <div class="form-group">
-            <label for="latlng">Bản đồ:</label>
-            <input type="text" name="latlng" id="latlng" placeholder="Bản đồ phòng trọ" required>
+        <div class="form-group mb-4">
+            <label for="latlng" class="block text-gray-700">Bản đồ:</label>
+            <input type="text" name="latlng" id="latlng" placeholder="Bản đồ phòng trọ" required class="w-full px-3 py-2 border rounded">
         </div>
 
-        <div class="form-group">
-            <label for="images">Hình ảnh phòng trọ:</label>
-            <input type="file" name="images" id="images" accept="image/*" required>
+        <div class="form-group mb-4">
+            <label for="images" class="block text-gray-700">Hình ảnh phòng trọ:</label>
+            <input type="file" name="images" id="images" accept="image/*" required class="w-full px-3 py-2 border rounded">
         </div>
 
-        <div class="form-group">
-            <label for="phone">Số điện thoại chủ trọ:</label>
-            <input type="text" name="phone" id="phone" placeholder="Số điện thoại chủ trọ" required>
+        <div class="form-group mb-4">
+            <label for="phone" class="block text-gray-700">Số điện thoại chủ trọ:</label>
+            <input type="text" name="phone" id="phone" placeholder="Số điện thoại chủ trọ" required class="w-full px-3 py-2 border rounded">
         </div>
 
-        <div class="form-group">
-            <label for="utilities">Các tiện ích:</label>
-            <input type="text" name="utilities" id="utilities" placeholder="Các tiện ích" required>
+        <div class="form-group mb-4">
+            <label for="utilities" class="block text-gray-700">Các tiện ích:</label>
+            <input type="text" name="utilities" id="utilities" placeholder="Các tiện ích" required class="w-full px-3 py-2 border rounded">
         </div>
 
-        <div class="form-group">
-            <label for="category_id">Loại phòng:</label>
-            <select name="category_id" id="category_id">
-                <option value="1">Loại phòng giá rẻ</option>
-                <option value="2">Loại phòng bình thường</option>
-                <option value="3">Loại phòng giá cao</option>
+        <div class="form-group mb-4">
+            <label for="category_id" class="block text-gray-700">Loại phòng:</label>
+            <select name="category_id" id="category_id" class="w-full px-3 py-2 border rounded">
+                <option value="1">Loại phòng khong phan loai</option>
+                <option value="2">Loại phòng dan</option>
+                <option value="3">Loại phòng cao cap</option>
             </select>
         </div>
 
-        <div class="form-group">
-            <label for="district_id">Khu vực:</label>
-            <select name="district_id" id="district_id">
+        <div class="form-group mb-4">
+            <label for="district_id" class="block text-gray-700">Khu vực:</label>
+            <select name="district_id" id="district_id" class="w-full px-3 py-2 border rounded">
                 <option value="1">Khu vực nội thành</option>
                 <option value="2">Khu vực ngoại thành</option>
                 <option value="3">Khu vực gần trường học</option>
@@ -167,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
         </div>
 
         <div class="form-group">
-            <input type="submit" name="add" value="Đăng bài">
+            <input type="submit" name="add" value="Đăng bài" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-700">
         </div>
     </form>
 </body>

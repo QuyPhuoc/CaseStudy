@@ -9,6 +9,8 @@ module.exports = {
       width: {
         "mainviewport": "calc(100vw - 20rem)",
       "mainviewportwithrightpanel": "calc(100vw - 10rem)",},
+      backgroundColor: theme => ({
+        "shade": "rgba(0, 0, 0, 0.5)"}),
     },
   },
   plugins: [],
