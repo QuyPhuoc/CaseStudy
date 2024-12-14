@@ -40,7 +40,7 @@
         <div class="sort-option text-white p-4">
             <h1 class="text-white text-lg font-bold mb-4">Sắp xếp theo</h1>
             <div class="sort-option-item mb-2 w-28 flex justify-center">
-                <button type="button" id="sort1" class="flex w-full justify-center text-center items-center text-white bg-blue-500 py-2 px-4 rounded hover:bg-blue-700">Mới nhất</button>
+                <button type="button" id="sort1" class="flex w-full justify-center text-center items-center text-white bg-blue-500 py-2 px-4 rounded hover:bg-blue-700" onclick="sortPostNewst()">Mới nhất</button>
             </div>
             <div class="sort-option-item mb-2 w-28 flex justify-center">
                 <button type="button" id="sort2" class="flex w-full justify-center text-center items-center text-white bg-blue-500 py-2 px-4 rounded hover:bg-blue-700">Cũ nhất</button>

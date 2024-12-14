@@ -1,22 +1,22 @@
 <?php
-require 'dbconnection.php';
+require '../php/dbconnection.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
     
-    if (isset($input['action']) && $input['action'] === 'your_function_name') {
-        your_function_name();
+    if (isset($input['action']) && $input['action'] === 'sortPostNew') {
+        sortPostNew();
     }
 }
 
-function sortPost($sort){
+function sortPostNew(){
     $conn = getDBConnection();
     if($conn->connect_error){
         echo "<script>window.alert(".$conn->connect_error.")</script>";
     }
-    $sql = "SELECT * FROM post ORDER BY $sort";
+    $sql = "SELECT title, description, price, area, count_view, address, latlng, images,Motel.phone,utilities,created_at ,USER.Username FROM Motel join USER on Motel.user_id = USER.ID";
     $result = $conn->query($sql);
     if($result->num_rows > 0){
-        while($row = $res->fetch_assoc()){
+        while($row = $result->fetch_assoc()){
             $data[] = $row;
             $date = date("d-m-Y", strtotime($row['created_at']));
             echo "<div class='motel-info text-clip mt-12 bg-green-200 p-4 m-4 border border-black block text-center text-black hover:bg-blue-500 hover:cursor-pointer rounded-2xl'>
@@ -59,4 +59,5 @@ function sortPost($sort){
     }
     echo json_encode($data);
 }
+sortPostNew();
 ?>

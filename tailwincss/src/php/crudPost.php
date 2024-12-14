@@ -94,11 +94,6 @@ function deleteMotel($id){
     }
 }
 
-
-
-
-
-
 function createMotel($title, $description, $price, $area, $address, $latlng, $phone, $utilities){
     $conn = getDBConnection();
     $sql = "INSERT INTO Motel (title, description, price, area, address, latlng, phone, utilities) VALUES ('$title', '$description', '$price', '$area', '$address', '$latlng', '$phone', '$utilities')";
