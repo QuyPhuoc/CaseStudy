@@ -61,8 +61,8 @@
                 <input type="radio" name="sort" id="sort4" class="hidden">
                 <label for="sort4" class="cursor-pointer text-white">Vi tri</label>
                 <select class="text-black ml-2 p-1 rounded">
-                    <option value="ASC">Xa nhat</option>
-                    <option value="DESC">Gan nhat</option>
+                    <option value="ASC">Xa nhất</option>
+                    <option value="DESC">Gần nhất</option>
                 </select>
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>

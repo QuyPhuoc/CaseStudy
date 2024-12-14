@@ -1,6 +1,6 @@
 <!-- Ham de them nguoi dung -->
 <?php
-require '../Admin/checkUserEmailPhone.php';
+require '../php/checkUserEmailPhone.php';
 require_once '../php/dbconnection.php';
 function createuser($Name,$username,$password,$email,$phone,$Avatar){
     $Name = addslashes($Name);

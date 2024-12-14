@@ -1,5 +1,5 @@
 <?php
-require 'dbconnection.php';
+require_once '../php/dbconnection.php';
 require 'checkMotel.php';
 function getAllMotels() {
     $conn = getDBConnection();

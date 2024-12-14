@@ -1,6 +1,6 @@
 <?php
 require '../php/dbconnection.php';
-require 'checkUserEmailPhone.php';
+require '../php/checkUserEmailPhone.php';
 $conn = getDBConnection();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['edit_user'])) {

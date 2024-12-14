@@ -1,6 +1,6 @@
 <?php 
 require '../php/dbconnection.php';
-require 'checkUserEmailPhone.php';
+require '../php/checkUserEmailPhone.php';
 // function createuser($Name,$username,$password,$email,$phone,$Avatar){
 //     $Name = addslashes($Name);
 //     $username = addslashes($username);
